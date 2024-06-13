@@ -5,23 +5,23 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Song {
-    private String songId; // Có 4 ký tự và bắt đầu bằng kí tự S, không trùng lặp
-    private String songName; // Không được để trống
-    private String descriptions; // mô tả bài hát
-    private Singer singer; // không được null
-    private String songWriter; // không được để trống
-    private Date createdDate; // mặc định là thời gian hệ thống
-    private boolean songStatus; // trạng thái
+    private String songId; 
+    private String songName; 
+    private String descriptions; 
+    private Singer singer; 
+    private String songWriter; 
+    private Date createdDate; 
+    private boolean songStatus; 
 
-    // Array to store existing song IDs for validation (this would be managed externally in a real application)
+    
     private static String[] existingSongIds = new String[100];
     private static int existingSongCount = 0;
 
     public Song() {
-        this.createdDate = new Date(); // Set the created date to current date
+        this.createdDate = new Date();
     }
 
-    // Getters and setters
+    // get,set
     public String getSongId() {
         return songId;
     }
@@ -81,7 +81,7 @@ public class Song {
     public void inputData() {
         Scanner scanner = new Scanner(System.in);
 
-        // Validate songId
+       
         boolean validId = false;
         do {
             System.out.print("Xác nhận lại ID bài hát: ");
@@ -105,7 +105,7 @@ public class Song {
             }
         } while (!validId);
 
-        // Validate songName
+       
         do {
             System.out.print("Nhập tên bài hát: ");
             this.songName = scanner.nextLine();
@@ -123,7 +123,7 @@ public class Song {
             }
         } while (this.descriptions.isEmpty() || !Character.isUpperCase(this.descriptions.charAt(0)));
 
-        // Validate songWriter
+       
         do {
             System.out.print("Nhà soạn nhạc: ");
             this.songWriter = scanner.nextLine();
@@ -132,7 +132,7 @@ public class Song {
             }
         } while (this.songWriter.isEmpty());
 
-        // Validate singer
+       
         do {
             System.out.print("Nhập thong tin ca sĩ: ");
             if (this.singer == null || this.singer.getSingerName().isEmpty()) {
@@ -143,10 +143,10 @@ public class Song {
             }
         } while (this.singer == null || this.singer.getSingerName().isEmpty());
 
-        // Set createdDate to current date
+       
         this.createdDate = new Date();
 
-        // Set songStatus
+       
         System.out.print("Trạng thái bài hát (true for active, false for inactive): ");
         this.songStatus = Boolean.parseBoolean(scanner.nextLine());
         System.out.println("_________________");
