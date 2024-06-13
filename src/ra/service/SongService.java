@@ -41,7 +41,7 @@ public class SongService {
                 for (int j = i; j < size - 1; j++) {
                     songs[j] = songs[j + 1];
                 }
-                songs[--size] = null; // Clear the last element
+                songs[--size] = null; 
                 return true;
             }
         }
